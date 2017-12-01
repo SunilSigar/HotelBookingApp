@@ -1,0 +1,32 @@
+hotelList
+hotelList/id
+saveHotel
+
+db.createCollection("hotels");
+db.hotels.insert([
+			{
+			id:1,
+			name:'Taj', 
+			address:[
+			   {
+				   address: 'Marathalli', 
+				   location: "Bengaluru, Karnataka", zip:630156
+				}
+			   ],
+			dayRate:10000,
+			nightRate:15000
+			},
+			{
+			id:2,
+			name:'Jacksons', 
+			address:[
+			   {
+				   address: 'SilkBoard', 
+				   location: "Mumbai, MH, India", zip:156630
+				}
+			   ],
+			dayRate:20000,
+			nightRate:25000
+			}
+			]);
+			
