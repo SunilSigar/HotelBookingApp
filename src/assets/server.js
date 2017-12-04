@@ -25,8 +25,12 @@ app.get('/', function(req, res){
 	MongoClient.connect(url, function(err, db){
 		if(!err){
 			console.log("we are connected");
+			var searchText = req.query.searchText;
+			var maxResult = parseInt(req.query.maxResult);
+			console.log(searchText +"==="+maxResult);
 			var collection = db.collection('hotels');
-			collection.find().toArray(function(err, items){
+			//{'address.address':searchText}
+			collection.find().limit(maxResult).toArray(function(err, items){
 				if(err) throw err;
 				console.log(items.length);
 				res.json(items);

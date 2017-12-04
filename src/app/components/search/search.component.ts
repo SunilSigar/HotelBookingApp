@@ -9,16 +9,18 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 export class SearchComponent implements OnInit {
   
   searchstring ='Search Hotels';
-  searchText ='Bengaluru';
-  MaximumResult = '5';
+  searchText ='Marathalli';
+  MaximumResult = 5;
 
+  isValid = true;
   results;
   constructor(private http: HttpClient){}
 
   findHotels(){
-     this.http.get('http://localhost:3000').subscribe(data =>
+     this.isValid = false;
+     this.http.get('http://localhost:3000/?searchText='+this.searchText+'&maxResult='+this.MaximumResult).subscribe(data =>
       {console.log('=========================:'+JSON.stringify(data));
-      this.results = JSON.stringify(data);
+      this.results = data;
       });
   }
   ngOnInit() {

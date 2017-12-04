@@ -1,10 +1,10 @@
-<div id="searchpage" align="center">
+<div *ngIf="isValid" id="searchpage">
   <form class="form-inline">
+      <br /><br />
       <div class="form-group">
       <label for="SearchString">searchstring </label>
       <input type="text" name="searchinput" placeholder="Search" [(ngModel)]="searchText" class="form-control" id="SearchString" placeholder="">
       </div>
-      <br />
       <div class="form-group">
       <label for="maximumlimits">maximumresults </label>
       <select class="form-control" [(ngModel)]="MaximumResult" name="selectedoption">
@@ -13,8 +13,18 @@
         <option>10</option>
       </select>
       </div>
-      <br />
+      <br /><br />
       <button type="submit" class="btn btn-success" (click)="findHotels()">Find Hotels</button>
     </form>
   </div>
+<div *ngIf="!isValid">
+  <h3>Hotel Results</h3>
+    <a routerLink="/search" routerLinkActive="active">Change Search(not implemented)</a><br>
+    <table>
+    <tr *ngFor="let result of results">
+      <td>{{result.id}}</td>
+      <td>{{result.name}}</td>
+    </tr>
+  </table>  
   {{results}} 
+</div>

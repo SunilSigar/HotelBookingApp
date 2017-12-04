@@ -5,28 +5,28 @@ saveHotel
 db.createCollection("hotels");
 db.hotels.insert([
 			{
-			id:1,
-			name:'Taj', 
+			id:3,
+			name:'Hyatt', 
 			address:[
 			   {
-				   address: 'Marathalli', 
-				   location: "Bengaluru, Karnataka", zip:630156
+				   address: 'Viman Nagar', 
+				   location: "Pune, MH, India", zip:411011
 				}
 			   ],
-			dayRate:10000,
-			nightRate:15000
+			dayRate:5000,
+			nightRate:10000
 			},
 			{
-			id:2,
-			name:'Jacksons', 
+			id:4,
+			name:'ITC', 
 			address:[
 			   {
-				   address: 'SilkBoard', 
-				   location: "Mumbai, MH, India", zip:156630
+				   address: 'MG Road', 
+				   location: "Jaipur, Raj, India", zip:334801
 				}
 			   ],
-			dayRate:20000,
-			nightRate:25000
+			dayRate:3000,
+			nightRate:5000
 			}
 			]);
 			

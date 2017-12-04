@@ -24,10 +24,10 @@ import { BookComponent } from './components/book/book.component';
     RouterModule.forRoot([
       {path:'home',component:HomeComponent},
       {path:'search',component:SearchComponent},
-      {path:'**',component:AppComponent}
+      {path:'**',component:HomeComponent}
     ]),
   ],
-  providers: [],
+  providers: [ResultComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
