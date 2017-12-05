@@ -30,12 +30,15 @@
 
 <div *ngIf='!isVisible' class="well well-lg">
     <div *ngFor="let hotel of hotelDetail">
-        <form class="form-inline" action="#">
+        <form class="form-inline" [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)">
+            <div class="form-container">
             <div>
                 <div class="form-group">
-                    <label>User Name:</label>
-                    <input type="text" class="form-control" placeholder="User Name" name="name" required>
+                    <label>User Name:
+                    <input type="text" class="form-control" placeholder="User Name" formControlName="name" required>
+                     </label>
                 </div>
+                <div class="alert" *ngIf="!rForm.controls['name'].valid && rForm.controls['name'].touched">{{ titleAlert }}</div>
                 <div class="form-group">
                     <label>User Address:</label>
                     <input type="text" class="form-control" placeholder="User Address" name="address" required>
@@ -70,9 +73,35 @@
                 </div>
             </div>
             <br>
-            <button type="submit" class="btn btn-success" (click)='submitfun()'>Save</button>
+            <input type="submit" class="btn btn-success" value="Save" [disabled]="!rForm.valid">
+            <!-- <button type="submit" class="btn btn-success" (click)='submitfun()'>Save</button> -->
             <button type="cancel" class="btn btn-warning" (click)='cancelfun()'>Cancel</button>
+        </div>
         </form>
 
     </div>
 </div>
+
+<!-- ============================== -->
+<!-- 
+<div>
+        <form [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)">
+          <div class="form-container">
+            <div class="row columns">
+              <h1>My Reactive Form</h1>
+              <label>Name
+                <input type="text" formControlName="name">
+              </label>
+              <div class="alert" *ngIf="!rForm.controls['name'].valid && rForm.controls['name'].touched">{{ titleAlert }}</div>
+              
+              <label>Description
+                <textarea  formControlName="description"></textarea>
+              </label>
+              <div class="alert" *ngIf="!rForm.controls['description'].valid && rForm.controls['description'].touched">You must specify a description that's between 30 and 500 characters.</div>
+              
+              <input type="submit" class="button expanded" value="Submit Form" [disabled]="!rForm.valid">
+            </div>
+          </div>
+        </form>
+      </div>
+      -->
