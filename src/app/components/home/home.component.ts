@@ -6,8 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css', '../../styles/main.css', '../../styles/main.less', '../../styles/styles.css']
 })
 export class HomeComponent implements OnInit {
-  pagetitle = 'UI case study - Hotel Booking Application';
-  description = 'Welcome to UI case study for Hotel Booking. This sample demonstrates how to use Angular and Bootstrap to develop a Single Page Application ';
+  title = 'Welcome to UI case study for Hotel Booking.';
+  description = 'This sample demonstrates how to use Angular and Bootstrap to develop a Single Page Application ';
   desctitle = 'The key features:';
   contents = ['Angular as MVC Framework', 'Bootstrap', 'REST', 'Jasmine'];
   searchcasestudy = 'Start Case Study';

@@ -1,4 +1,5 @@
 <div class='main-content-intro'>
+	<h4>{{title}}</h4>
 	<hr>{{desctitle}}
 	<ul>
 		<li *ngFor="let content of contents">
@@ -6,7 +7,7 @@
 		</li>
   </ul>
   <div>
-  <a routerLink="/search" routerLinkActive="active">{{searchcasestudy}}</a>
+  <a class="btn btn-success" routerLink="/search" routerLinkActive="active">{{searchcasestudy}}</a>
 </div>
 </div>
 

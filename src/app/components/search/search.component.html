@@ -1,12 +1,13 @@
-<div *ngIf="isValid" id="searchpage">
+<h3>Search Hotels</h3>
+<div id="searchpage" class="well well-lg">
   <form class="form-inline">
       <br /><br />
       <div class="form-group">
-      <label for="SearchString">searchstring </label>
+      <label for="SearchString">Search String </label>
       <input type="text" name="searchinput" placeholder="Search" [(ngModel)]="searchText" class="form-control" id="SearchString" placeholder="">
       </div>
       <div class="form-group">
-      <label for="maximumlimits">maximumresults </label>
+      <label for="maximumlimits">Maximum Results </label>
       <select class="form-control" [(ngModel)]="MaximumResult" name="selectedoption">
         <option value="">Please select maximum results</option>
         <option>5</option>
@@ -14,20 +15,6 @@
       </select>
       </div>
       <br /><br />
-      <button type="submit" class="btn btn-success" (click)="findHotels()">Find Hotels</button>
+      <button class="btn btn-success" [routerLink]="['/result',searchText,MaximumResult]">Find Hotels</button>
     </form>
   </div>
-<div *ngIf="!isValid">
-  <h3>Hotel Results</h3>
-    <a routerLink="/search" routerLinkActive="active">Change Search(not implemented)</a><br>
-    <table class="table table-striped table-bordered table-hover table-condensed">
-    <tr *ngFor="let result of results">
-      <td>{{result.id}}</td>
-      <td>{{result.name}}</td>
-      <td>{{result.address[0].address}}</td>
-      <td>{{result.address[0].location}}</td>
-      <td>{{result.dayRate}}</td>
-    </tr>
-  </table>  
-  {{results}} 
-</div>

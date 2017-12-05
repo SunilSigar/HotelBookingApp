@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
+import { HotelService } from '../../hotel.service';
 
 @Component({
   selector: 'app-result',
@@ -9,18 +10,21 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 export class ResultComponent implements OnInit {
   
   results;
-  abc(){
-    console.log("hi");
-  }
-  constructor(private http: HttpClient){}
+  searchText ='Marathalli';
+  MaximumResult = 5;
 
-  findHotels(){
-     this.http.get('http://localhost:3000').subscribe(data =>
-      {console.log('=========================:'+JSON.stringify(data));
-      this.results = JSON.stringify(data);
-      });
-  }
+  constructor(private hotelService:HotelService, private route:ActivatedRoute){}
+
   ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.searchText = params['searchText'];
+      this.MaximumResult = params['MaximumResult'];
+      this.hotelService.findHotelsFromService(this.searchText, this.MaximumResult).subscribe(data =>
+        {
+                this.results = data;
+                console.log(this.results);
+        });
+    })
   }
 
 }

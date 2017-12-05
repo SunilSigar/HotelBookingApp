@@ -1,4 +1,22 @@
-<p>
-  result works!
-</p>
-{{results}} 
+<h3>Hotel Results</h3>
+<a class="btn btn-success" routerLink="/search" routerLinkActive="active">Change Search</a><br>
+<br>
+<div class="well well-lg">
+      <table class="table table-striped table-bordered table-hover table-condensed">
+        <tr>
+          <th>Name</th>
+          <th>Address</th>
+          <th>City, State</th>
+          <th>Zip</th>
+          <th>Action</th>
+        </tr>
+        <tr *ngFor="let result of results">
+        <td>{{result.name}}</td>
+        <td>{{result.address[0].address}}</td>
+        <td>{{result.address[0].location}}</td>
+        <td>{{result.address[0].zip}}</td>
+        <td><button  class="btn btn-success" [routerLink]="['/view',result.id]">View Hotel</button></td>
+        <!-- {{result.id}} -->
+      </tr>
+    </table>
+  </div>
