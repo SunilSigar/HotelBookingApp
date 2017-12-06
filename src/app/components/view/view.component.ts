@@ -16,14 +16,14 @@ export class ViewComponent implements OnInit {
 
 
   rForm: FormGroup;
-  post:any;                     // A property for our submitted form
- // description:string = '';
+  post:any;                  
   name:string = '';
   address:string = '';
   location:string = '';
   zip:string = '';
   zipAlert:string = 'Please enter 6 digit zip code.';
   titleAlert:string = 'This field is required';
+
   constructor(private hotelService:HotelService, private route:ActivatedRoute, private fb: FormBuilder) {
     this.rForm = fb.group({
       'name' : [null, Validators.required],

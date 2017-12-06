@@ -9,7 +9,7 @@ export class SearchComponent implements OnInit {
   
   searchstring ='';
   searchText ='';
-  MaximumResult = 5;
+  MaximumResult = 2;
 
   results;
   constructor(){}

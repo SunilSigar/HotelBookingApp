@@ -1,8 +1,9 @@
 <div class='main-content-intro'>
-	<h4>{{title}}</h4>
-	<hr>{{desctitle}}
-	<ul>
-		<li *ngFor="let content of contents">
+	<h3>{{title}}</h3>
+	<hr>
+	<h4>{{desctitle}}</h4>
+	<ul class="list-group">
+		<li class="list-group-item" *ngFor="let content of contents">
 			{{content}}
 		</li>
   </ul>

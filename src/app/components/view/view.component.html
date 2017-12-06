@@ -33,54 +33,38 @@
         <form class="form-inline" [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)">
             <div class="form-container">
                 <div>
-                    <div class="form-group">
-                        <label>User Name:
-                            <input type="text" class="form-control" placeholder="User Name" formControlName="name" required>
-                        </label>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>User Address:</label>
-                        <input type="text" class="form-control" placeholder="User Address" formControlName="address" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Location:</label>
-                        <input type="text" class="form-control" placeholder="User Address Location" formControlName="location" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Zip:</label>
-                        <input type="text" pattern="[0-9]{6}" class="form-control" placeholder="User Address Zip" formControlName="zip" required>
-                    </div>
+                    <label>User Name:</label>
+                        <input type="text" class="form-control" placeholder="User Name" formControlName="name">
+                    <label>User Address:</label>
+                    <input type="text" class="form-control" placeholder="User Address" formControlName="address">
+                    <label>Location:</label>
+                    <input type="text" class="form-control" placeholder="User Address Location" formControlName="location">
+                    <label>Zip:</label>
+                    <input type="text" pattern="[0-9]{6}" class="form-control" placeholder="User Address Zip" formControlName="zip">
+
                 </div>
-                <div class="alert alert-warning" *ngIf="(!rForm.controls['name'].valid && rForm.controls['name'].touched) || (!rForm.controls['address'].valid && rForm.controls['address'].touched) || (!rForm.controls['location'].valid && rForm.controls['location'].touched)">{{ titleAlert }}</div>
-                <div class="alert alert-warning" *ngIf="!rForm.controls['zip'].valid && rForm.controls['zip'].touched">{{ zipAlert }}</div>
+                <div class="alert alert-danger" *ngIf="(!rForm.controls['name'].valid && rForm.controls['name'].touched) || (!rForm.controls['address'].valid && rForm.controls['address'].touched) || (!rForm.controls['location'].valid && rForm.controls['location'].touched)">{{ titleAlert }}</div>
+                <div class="alert alert-danger" *ngIf="!rForm.controls['zip'].valid && rForm.controls['zip'].touched">{{ zipAlert }}</div>
                 <br>
                 <div>
-                    <div class="form-group">
-                        <label>Hotel Name:</label>
-                        <input type="text" class="form-control" placeholder="Hotel Name" name="hotelname" [value]='hotel.name' disabled>
-                    </div>
-                    <div class="form-group">
-                        <label>Hotel Address:</label>
-                        <input type="text" class="form-control" placeholder="Hotel Address" name="hoteladdress" [value]='hotel.address[0].address'
-                            disabled>
-                    </div>
-                    <div class="form-group">
-                        <label>Location:</label>
-                        <input type="text" class="form-control" placeholder="Location" name="hotellocation" [value]='hotel.address[0].location' disabled>
-                    </div>
-                    <div class="form-group">
-                        <label>Zip:</label>
-                        <input type="number" class="form-control" placeholder="Zip" name="hotelzip" [value]='hotel.address[0].zip' disabled>
-                    </div>
+                    <label>Hotel Name:</label>
+                    <input type="text" class="form-control" placeholder="Hotel Name" name="hotelname" [value]='hotel.name' disabled>
+                    <label>Hotel Address:</label>
+                    <input type="text" class="form-control" placeholder="Hotel Address" name="hoteladdress" [value]='hotel.address[0].address'
+                        disabled>
+                    <label>Location:</label>
+                    <input type="text" class="form-control" placeholder="Location" name="hotellocation" [value]='hotel.address[0].location' disabled>
+                    <label>Zip:</label>
+                    <input type="number" class="form-control" placeholder="Zip" name="hotelzip" [value]='hotel.address[0].zip' disabled>
+
                 </div>
-                
+
                 <br>
                 <input type="submit" class="btn btn-success" value="Save" [disabled]="!rForm.valid">
                 <button type="cancel" class="btn btn-warning" (click)='cancelfun()'>Cancel</button>
             </div>
         </form>
-        
+
     </div>
 </div>
 
