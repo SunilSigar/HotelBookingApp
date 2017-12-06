@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
   
-  searchstring ='Search Hotels';
-  searchText ='Marathalli';
+  searchstring ='';
+  searchText ='';
   MaximumResult = 5;
 
   results;

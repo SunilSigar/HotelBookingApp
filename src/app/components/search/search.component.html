@@ -1,10 +1,10 @@
 <h3>Search Hotels</h3>
-<div id="searchpage" class="well well-lg">
+<div id="searchpage " class="well well-lg">
   <form class="form-inline">
       <br /><br />
       <div class="form-group">
       <label for="SearchString">Search String </label>
-      <input type="text" name="searchinput" placeholder="Search" [(ngModel)]="searchText" class="form-control" id="SearchString" placeholder="">
+      <input type="text" name="searchinput" [(ngModel)]="searchText" class="form-control" id="SearchString" placeholder="Location(Ex. Bengaluru)">
       </div>
       <div class="form-group">
       <label for="maximumlimits">Maximum Results </label>
@@ -15,6 +15,6 @@
       </select>
       </div>
       <br /><br />
-      <button class="btn btn-success" [routerLink]="['/result',searchText,MaximumResult]">Find Hotels</button>
     </form>
+    <button class="btn btn-success" [routerLink]="['/result',searchText,MaximumResult]">Find Hotels</button>
   </div>

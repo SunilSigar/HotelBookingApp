@@ -18,11 +18,13 @@ export class ResultComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.searchText = params['searchText'];
+      // if(this.searchText == ''){
+      //   console.log("searchText: "+this.searchText);
+      // }      
       this.MaximumResult = params['MaximumResult'];
       this.hotelService.findHotelsFromService(this.searchText, this.MaximumResult).subscribe(data =>
         {
                 this.results = data;
-                console.log(this.results);
         });
     })
   }

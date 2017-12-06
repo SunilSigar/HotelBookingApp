@@ -19,20 +19,27 @@ export class ViewComponent implements OnInit {
   post:any;                     // A property for our submitted form
  // description:string = '';
   name:string = '';
+  address:string = '';
+  location:string = '';
+  zip:string = '';
+  zipAlert:string = 'Please enter 6 digit zip code.';
   titleAlert:string = 'This field is required';
-
   constructor(private hotelService:HotelService, private route:ActivatedRoute, private fb: FormBuilder) {
     this.rForm = fb.group({
       'name' : [null, Validators.required],
-     // 'description' : [null, Validators.compose([Validators.required, Validators.minLength(30), Validators.maxLength(500)])],
-      'validate' : ''
+      'address' : [null, Validators.required],
+      'location' : [null, Validators.required],
+      'zip' : [null, Validators.required],
+     
     });
    }
 
    addPost(post) {
     this.submit = true;
-  //  this.description = post.description;
     this.name = post.name;
+    this.address = post.address;
+    this.location = post.location;
+    this.titleAlert = post.titleAlert;
   }
 
   ngOnInit() {

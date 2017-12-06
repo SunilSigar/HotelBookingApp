@@ -30,7 +30,7 @@ app.get('/', function(req, res){
 			console.log(searchText +"==="+maxResult);
 			var collection = db.collection('hotels');
 			//{'address.address':searchText}
-			collection.find().limit(maxResult).toArray(function(err, items){
+			collection.find({'address.address':searchText}).limit(maxResult).toArray(function(err, items){
 				if(err) throw err;
 				console.log(items.length);
 				res.json(items);

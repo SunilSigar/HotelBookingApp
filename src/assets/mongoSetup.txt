@@ -5,28 +5,29 @@ saveHotel
 db.createCollection("hotels");
 db.hotels.insert([
 			{
-			id:3,
-			name:'Hyatt', 
+			id:7,
+			name:'Taj Falaknuma Palace', 
 			address:[
 			   {
-				   address: 'Viman Nagar', 
-				   location: "Pune, MH, India", zip:411011
+				   address: 'Hyderabad', 
+				   location: "Hyderabad, AP, India", zip:678567
 				}
 			   ],
-			dayRate:5000,
-			nightRate:10000
+			dayRate:40000,
+			nightRate:60000
 			},
 			{
-			id:4,
-			name:'ITC', 
+			id:8,
+			name:'The Oberoi Grand', 
 			address:[
 			   {
-				   address: 'MG Road', 
-				   location: "Jaipur, Raj, India", zip:334801
+				   address: 'Kolkata', 
+				   location: "Kolkata, WB, India", zip:567456
 				}
 			   ],
-			dayRate:3000,
-			nightRate:5000
+			dayRate:20000,
+			nightRate:30000
 			}
 			]);
 			
+db.hotels.update({'id':2},{$set:{"address":[{"address":'Bengaluru', 'location': "Bengaluru, KT, India", 'zip':456233}]}})

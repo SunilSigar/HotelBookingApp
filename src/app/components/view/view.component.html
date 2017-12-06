@@ -1,6 +1,6 @@
 <h3>Book Hotel</h3>
 <div class="alert alert-success" *ngIf="submit">
-        <strong>Hotel Booking Done</strong>
+    <strong>Hotel Booking Done</strong>
 </div>
 <div *ngIf='isVisible' class="well well-lg">
     <table class="table table-striped table-bordered table-hover table-condensed">
@@ -32,53 +32,55 @@
     <div *ngFor="let hotel of hotelDetail">
         <form class="form-inline" [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)">
             <div class="form-container">
-            <div>
-                <div class="form-group">
-                    <label>User Name:
-                    <input type="text" class="form-control" placeholder="User Name" formControlName="name" required>
-                     </label>
+                <div>
+                    <div class="form-group">
+                        <label>User Name:
+                            <input type="text" class="form-control" placeholder="User Name" formControlName="name" required>
+                        </label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>User Address:</label>
+                        <input type="text" class="form-control" placeholder="User Address" formControlName="address" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Location:</label>
+                        <input type="text" class="form-control" placeholder="User Address Location" formControlName="location" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Zip:</label>
+                        <input type="text" pattern="[0-9]{6}" class="form-control" placeholder="User Address Zip" formControlName="zip" required>
+                    </div>
                 </div>
-                <div class="alert" *ngIf="!rForm.controls['name'].valid && rForm.controls['name'].touched">{{ titleAlert }}</div>
-                <div class="form-group">
-                    <label>User Address:</label>
-                    <input type="text" class="form-control" placeholder="User Address" name="address" required>
+                <div class="alert alert-warning" *ngIf="(!rForm.controls['name'].valid && rForm.controls['name'].touched) || (!rForm.controls['address'].valid && rForm.controls['address'].touched) || (!rForm.controls['location'].valid && rForm.controls['location'].touched)">{{ titleAlert }}</div>
+                <div class="alert alert-warning" *ngIf="!rForm.controls['zip'].valid && rForm.controls['zip'].touched">{{ zipAlert }}</div>
+                <br>
+                <div>
+                    <div class="form-group">
+                        <label>Hotel Name:</label>
+                        <input type="text" class="form-control" placeholder="Hotel Name" name="hotelname" [value]='hotel.name' disabled>
+                    </div>
+                    <div class="form-group">
+                        <label>Hotel Address:</label>
+                        <input type="text" class="form-control" placeholder="Hotel Address" name="hoteladdress" [value]='hotel.address[0].address'
+                            disabled>
+                    </div>
+                    <div class="form-group">
+                        <label>Location:</label>
+                        <input type="text" class="form-control" placeholder="Location" name="hotellocation" [value]='hotel.address[0].location' disabled>
+                    </div>
+                    <div class="form-group">
+                        <label>Zip:</label>
+                        <input type="number" class="form-control" placeholder="Zip" name="hotelzip" [value]='hotel.address[0].zip' disabled>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label>Location:</label>
-                    <input type="text" class="form-control" placeholder="User Address Location" name="location" required>
-                </div>
-                <div class="form-group">
-                    <label>Zip:</label>
-                    <input type="text" class="form-control" placeholder="User Address Zip" name="zip" required>
-                </div>
+                
+                <br>
+                <input type="submit" class="btn btn-success" value="Save" [disabled]="!rForm.valid">
+                <button type="cancel" class="btn btn-warning" (click)='cancelfun()'>Cancel</button>
             </div>
-            <br>
-            <div>
-                <div class="form-group">
-                    <label>Hotel Name:</label>
-                    <input type="text" class="form-control" placeholder="Hotel Name" name="hotelname" [value]='hotel.name' readonly>
-                </div>
-                <div class="form-group">
-                    <label>Hotel Address:</label>
-                    <input type="text" class="form-control" placeholder="Hotel Address" name="hoteladdress" [value]='hotel.address[0].address'
-                        readonly>
-                </div>
-                <div class="form-group">
-                    <label>Location:</label>
-                    <input type="text" class="form-control" placeholder="Location" name="hotellocation" [value]='hotel.address[0].location' readonly>
-                </div>
-                <div class="form-group">
-                    <label>Zip:</label>
-                    <input type="text" class="form-control" placeholder="Zip" name="hotelzip" [value]='hotel.address[0].zip' readonly>
-                </div>
-            </div>
-            <br>
-            <input type="submit" class="btn btn-success" value="Save" [disabled]="!rForm.valid">
-            <!-- <button type="submit" class="btn btn-success" (click)='submitfun()'>Save</button> -->
-            <button type="cancel" class="btn btn-warning" (click)='cancelfun()'>Cancel</button>
-        </div>
         </form>
-
+        
     </div>
 </div>
 
