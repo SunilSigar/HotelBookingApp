@@ -3,26 +3,13 @@
     <strong>Hotel Booking Done</strong>
 </div>
 <div *ngIf='isVisible' class="well well-lg">
-    <table class="table table-striped table-bordered table-hover table-condensed">
-        <tr>
-            <th>Name</th>
-            <th>Address</th>
-            <th>City, State</th>
-            <th>Zip</th>
-            <th>Day Rate</th>
-            <th>Night Rate</th>
-        </tr>
-        <tr *ngFor="let hotel of hotelDetail">
-            <td>{{hotel.name}}</td>
-            <td>{{hotel.address[0].address}}</td>
-            <td>{{hotel.address[0].location}}</td>
-            <td>{{hotel.address[0].zip}}</td>
-            <th>{{hotel.dayRate}}</th>
-            <th>{{hotel.nightRate}}</th>
-            <!-- <td><button  [routerLink]="['/view',hotel.id]">View Hotel</button></td> -->
-
-        </tr>
-    </table>
+    
+    <ul class="list-group" *ngFor="let hotel of hotelDetail">
+      <li class="list-group-item"><h3>{{hotel.name}}</h3></li>
+      <li class="list-group-item">{{hotel.address[0].address}}</li>
+      <li class="list-group-item">{{hotel.address[0].location}}</li>
+      <li class="list-group-item">{{hotel.address[0].zip}}</li>
+      </ul>
     <br>
     <button class="btn btn-success" (click)='boolHotel()'>Book Hotel</button>
     <br>
@@ -67,27 +54,3 @@
 
     </div>
 </div>
-
-<!-- ============================== -->
-<!-- 
-<div>
-        <form [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)">
-          <div class="form-container">
-            <div class="row columns">
-              <h1>My Reactive Form</h1>
-              <label>Name
-                <input type="text" formControlName="name">
-              </label>
-              <div class="alert" *ngIf="!rForm.controls['name'].valid && rForm.controls['name'].touched">{{ titleAlert }}</div>
-              
-              <label>Description
-                <textarea  formControlName="description"></textarea>
-              </label>
-              <div class="alert" *ngIf="!rForm.controls['description'].valid && rForm.controls['description'].touched">You must specify a description that's between 30 and 500 characters.</div>
-              
-              <input type="submit" class="button expanded" value="Submit Form" [disabled]="!rForm.valid">
-            </div>
-          </div>
-        </form>
-      </div>
-      -->
