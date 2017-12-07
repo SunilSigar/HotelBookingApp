@@ -21,7 +21,6 @@ app.use(function(req, res, next) {
 
 app.get('/', function(req, res){
 	var MongoClient = require('mongodb').MongoClient;
-	//console.log(username);
 	MongoClient.connect(url, function(err, db){
 		if(!err){
 			console.log("we are connected");
@@ -29,10 +28,8 @@ app.get('/', function(req, res){
 			var maxResult = parseInt(req.query.maxResult);
 			console.log(searchText +"==="+maxResult);
 			var collection = db.collection('hotels');
-			//{'address.address':searchText}
 			collection.find({'address.address':searchText}).limit(maxResult).toArray(function(err, items){
 				if(err) throw err;
-				console.log(items.length);
 				res.json(items);
 			});
         }
@@ -44,17 +41,13 @@ app.get('/', function(req, res){
 
 app.get('/hotelDetails', function(req, res){
 	var MongoClient = require('mongodb').MongoClient;
-	//console.log(username);
 	MongoClient.connect(url, function(err, db){
 		if(!err){
 			console.log("we are connected");
 			var hotelId = parseInt(req.query.hotelId);
-			console.log("Hotel Id=="+hotelId);
 			var collection = db.collection('hotels');
-			//{'address.address':searchText}
 			collection.find({id:hotelId}).toArray(function(err, items){
 				if(err) throw err;
-				console.log("Hotel found: "+items.length);
 				res.json(items);
 			});
         }

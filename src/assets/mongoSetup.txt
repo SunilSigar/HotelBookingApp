@@ -1,9 +1,9 @@
-hotelList
-hotelList/id
-saveHotel
+Step1. create database using "use databaseName" command in mongo Note: ignore outer quotation.
 
-db.createCollection("hotels");
-db.hotels.insert([
+Step2. create collection using "db.createCollection("collectionName")" Note: ignore outer quotation.
+
+Step3. Insert data:
+			db.hotels.insert([
 			{
 			id:7,
 			name:'Taj Falaknuma Palace', 
@@ -30,4 +30,3 @@ db.hotels.insert([
 			}
 			]);
 			
-db.hotels.update({'id':2},{$set:{"address":[{"address":'Bengaluru', 'location': "Bengaluru, KT, India", 'zip':456233}]}})

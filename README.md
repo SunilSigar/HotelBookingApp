@@ -26,3 +26,36 @@ Before running the tests make sure you are serving the app via `ng serve`.
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Setup Mongo Database
+Step1. create database using "use databaseName" command in mongo Note: ignore outer quotation.
+
+Step2. create collection using "db.createCollection("collectionName")" Note: ignore outer quotation.
+
+Step3. Insert data:
+			db.hotels.insert([
+			{
+			id:7,
+			name:'Taj Falaknuma Palace', 
+			address:[
+			   {
+				   address: 'Hyderabad', 
+				   location: "Hyderabad, AP, India", zip:678567
+				}
+			   ],
+			dayRate:40000,
+			nightRate:60000
+			},
+			{
+			id:8,
+			name:'The Oberoi Grand', 
+			address:[
+			   {
+				   address: 'Kolkata', 
+				   location: "Kolkata, WB, India", zip:567456
+				}
+			   ],
+			dayRate:20000,
+			nightRate:30000
+			}
+			]);
