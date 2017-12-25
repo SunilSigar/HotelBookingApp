@@ -9,7 +9,7 @@ var bodyParser = require('body-parser');
 var MongoClient = mongodb.MongoClient;
 
 
-var url = 'mongodb://localhost:27017/hotels';
+var url = 'mongodb://SunilSigar:asdfghjkl@cluster0-shard-00-00-r0x8q.mongodb.net:27017,cluster0-shard-00-01-r0x8q.mongodb.net:27017,cluster0-shard-00-02-r0x8q.mongodb.net:27017/hotels?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin';
 
 
 //Added to resolve the cross domain issue while connecting from Angular (localhost:9000) to the current port (localhost:3000)

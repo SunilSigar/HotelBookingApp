@@ -5,24 +5,24 @@ Step2. create collection using "db.createCollection("collectionName")" Note: ign
 Step3. Insert data:
 			db.hotels.insert([
 			{
-			id:7,
-			name:'Taj Falaknuma Palace', 
+			id:4,
+			name:'Taj Hotel', 
 			address:[
 			   {
-				   address: 'Hyderabad', 
-				   location: "Hyderabad, AP, India", zip:678567
+				   address: 'Bengaluru', 
+				   location: "Bengaluru, KT, India", zip:678567
 				}
 			   ],
 			dayRate:40000,
 			nightRate:60000
 			},
 			{
-			id:8,
-			name:'The Oberoi Grand', 
+			id:5,
+			name:'The Grand', 
 			address:[
 			   {
-				   address: 'Kolkata', 
-				   location: "Kolkata, WB, India", zip:567456
+				   address: 'Bengaluru', 
+				   location: "Bengaluru, KT, India", zip:567456
 				}
 			   ],
 			dayRate:20000,
