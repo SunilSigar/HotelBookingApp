@@ -1,0 +1,24 @@
+[
+    {
+      "Name": "SecurityArea",
+      "Count": 20,
+      "AvgTime": 3,
+      "DataType": "Passenger",
+      "config": {
+        "lat": 18.22,
+        "long": 73.233,
+        "radius": 500
+      }
+    },
+    {
+      "Name": "CheckinArea",
+      "Count": 15,
+      "AvgTime": 2,
+      "DataType": "Passenger",
+      "config": {
+        "lat": 19.22,
+        "long": 74.233,
+        "radius": 500
+      }
+    }
+  ]
